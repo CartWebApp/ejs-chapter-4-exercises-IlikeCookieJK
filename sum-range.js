@@ -13,7 +13,11 @@ function range(start, end, step = 1) {
 }
 
 function sum(numbers) {
-  // Add code.
+  let cat = 0;
+  for (const i of numbers) {
+    cat = i + cat;
+  }
+  return cat;
 }
 
 

@@ -1,9 +1,24 @@
 function reverseArray(arr) {
-  // Add code.
+  let cat = [];
+  for (i = 0; i < arr.length; i++) {
+    let x = arr[i];
+    cat.unshift(x)
+  }
+  return cat;
 }
 
 function reverseArrayInPlace(arr) {
-  // Add code.
+  const y = arr.length;
+  for (i = 1; i < arr.length; i++) {
+    let x = arr[arr.length-i];
+    console.log(x)
+    arr.pop()
+    arr.unshift(x);
+    if (i === y) {
+      break;
+    }
+  }
+  return arr;
 }
 
 
