@@ -10,10 +10,14 @@ function reverseArray(arr) {
 function reverseArrayInPlace(arr) {
   const y = arr.length;
   for (i = 1; i < arr.length; i++) {
-    let x = arr[arr.length-i];
-    console.log(x)
-    arr.pop()
-    arr.unshift(x);
+    let x = arr[y-i];
+    arr.push(x);
+    if (i === y) {
+      break;
+    }
+  }
+  for (i = 0; i < arr.length; i++) {
+    arr.shift();
     if (i === y) {
       break;
     }
