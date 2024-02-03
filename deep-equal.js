@@ -1,46 +1,41 @@
 function deepEqual(value, reference) {
-  if (typeof value == "object") {
-    let x = Object.values(value);
-    for (let val of x) {
-      if (val == null) {
+  let x = Object.values(value);
+  let y = Object.values(reference);
+  if (y.length != x.length) {
+    return false;
+  } else {
+    const list1 = []
+    for (p of x) {
+      list1.push(typeof (p))
+      if (p == null) {
         return false;
       }
     }
-    return false;  }
-  // } else if (typeof reference == "object" && Object.values(reference) == null) {
-  //   return false;  
-  // } else {
-  //   let x = typeof(value)
-  //   console.log(x)
-  // }
-  
-
-  console.log(typeof value == `object`)
-
-  console.log(Object.values(value) == null)
-  console.log(Object.values(value))
-  for (const i of numbers) {
-    cat = i + cat;
+    const list2 = []
+    for (w of y) {
+      list2.push(typeof (w))
+      if (w == null) {
+        return false;
+      }
+    }
+    for (i = 0; i < x.length; i++) {
+      let q1 = list1.slice(i, i + 1)
+      let q2 = list2.slice(i, i + 1)
+ 
+      if (q1.toString() != q2.toString()) {
+        return false;
+      } else  {
+        return true
+      }
+    }
   }
-
-
-
-
-
-
-
 }
 
-
-
-
-
-// {is: "an"}
 // tests
-let obj = {here: null, object: 2};
+let obj = { here: { is: "an" }, object: 2 };
 console.log(deepEqual(obj, obj));
 // → true
-// console.log(deepEqual(obj, {here: 1, object: 2}));
+console.log(deepEqual(obj, { here: 1, object: 2 }));
 // → false
-// console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+console.log(deepEqual(obj, { here: { is: "an" }, object: 2 }));
 // → true
